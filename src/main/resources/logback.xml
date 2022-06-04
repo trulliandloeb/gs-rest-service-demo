@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+	<appender name="STDOUT"
+		class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%date %-5level [%thread] - [%logger] - %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<root level="${LOG_ROOT_LEVEL:-INFO}">
+		<appender-ref ref="STDOUT" />
+	</root>
+	<!--<logger name="org.springframework.security" level="${LOG_ROOT_LEVEL:-TRACE}"/> 
+		<logger name="com.sap.hcp.cf" level="${LOG_CF_LEVEL:-INFO}"/> log request 
+		details provided by RequestLoggingFilter -->
+
+<!-- 	<logger name="com.sap.rc" level="${LOG_ROOT_LEVEL:-INFO}" /> -->
+
+<!-- 	<logger name="com.sap.xs2.security.commons" -->
+<!-- 		level="${LOG_ROOT_LEVEL:-WARN}" /> -->
+	<!--<logger name="com.zaxxer.hikari" level="${LOG_ROOT_LEVEL:-DEBUG}"/> -->
+
+	<!-- Not to log messages with TECHNICAL marker -->
+	<turboFilter
+		class="ch.qos.logback.classic.turbo.MarkerFilter">
+		<Name>TESTFILTER</Name>
+		<Marker>TECHNICAL</Marker>
+		<OnMatch>DENY</OnMatch>
+	</turboFilter>
+
+</configuration>
