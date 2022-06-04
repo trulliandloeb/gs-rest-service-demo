@@ -1,0 +1,11 @@
+---
+applications:
+  - name: trull
+    memory: 768M
+    path: target/rest-service-complete-0.0.1-SNAPSHOT.jar
+    buildpacks:
+      - https://github.com/cloudfoundry/apt-buildpack.git
+      - https://github.com/cloudfoundry/java-buildpack.git#v4.48.3
+    env:
+      JBP_CONFIG_OPEN_JDK_JRE: "{jre: {version: 1.8.0_312}}"
+

@@ -1,0 +1,4 @@
+---
+packages:
+  - openjdk-8-jdk-headless
+
